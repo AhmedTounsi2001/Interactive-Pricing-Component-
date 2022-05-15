@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Pricing Component</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header>
+        <h1>Simple, traffic-based pricing</h1>
+        <p>Sign-up for our 30-day trial. No credit card required</p>
+    </header>
+    <main>
+
+        <div class="hero">
+            <p>100K Pageviews <span>$16.00</span>/month</p>
+            <input class="range" data-visible="false" type="range">
+            <form action="">
+                <label for="" class="monthly">Monthly Biling</label>
+                <input class="button-check" type="checkbox" data-visible="false">
+                <label for="" class="yearly">Yearly Biling <span>25% discount</span></label>
+            </form>
+        </div>
+        <hr>
+        <div class="foot">
+            <ol>
+                <li>Unlimited Website</li>
+                <li>100% data ownership</li>
+                <li>Email reports</li>
+            </ol>
+            <a href="#">Start my trial</a>
+        </div>
+
+    </main>
+    <script>
+        const range = document.querySelector(".range");
+
+
+
+        range.addEventListener("mouseover", () => {
+            const visibility = range.getAttribute("data-visible");
+            if (visibility === "false") {
+                range.setAttribute("data-visible", true);
+            }
+        });
+        range.addEventListener("mouseout", () => {
+            const visibility = range.getAttribute("data-visible");
+            if (visibility === "true") {
+                range.setAttribute("data-visible", false);
+            }
+        });
+        const btnCheck = document.querySelector(".button-check");
+        btnCheck.addEventListener("click", () => {
+            const checked = btnCheck.getAttribute("data-visible");
+            if (checked === "false") {
+                btnCheck.setAttribute("data-visible", true);
+            } else if (checked === "true") {
+                btnCheck.setAttribute("data-visible",
+                    false);
+            }
+        });
+
+        const month = document.querySelector(".monthly");
+        month.addEventListener("click", () => {
+            const checked = btnCheck.getAttribute("data-visible");
+            if (checked === "false") {
+                btnCheck.setAttribute("data-visible", true);
+            }
+        });
+        const year = document.querySelector(".yearly");
+        year.addEventListener("click", () => {
+            const checked = btnCheck.getAttribute("data-visible");
+            if (checked === "true") {
+                btnCheck.setAttribute("data-visible", false);
+            }
+        });
+    </script>
+</body>
+
+</html>
